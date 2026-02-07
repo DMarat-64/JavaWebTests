@@ -24,6 +24,10 @@ public class LoginPage extends BasePage {
     private SelenideElement errorMessage = $("[class='LoginForm-module__error___1xmAD" +
             " vkuiCaption__sizeYNone vkuiCaption__level1 vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host']");
 
+    private SelenideElement goToRecoveryButton = $("[class='vkuiInternalTappable vkuiButton__host vkuiButton__sizeL vkuiButton__modePrimary" +
+            " vkuiButton__appearanceAccent vkuiButton__sizeYNone vkuiButton__stretched vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone" +
+            " vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host']");
+
     {
         verifyPageElements();
     }
@@ -60,15 +64,27 @@ public class LoginPage extends BasePage {
         loginButton.shouldBe(visible).click();
     }
 
-    @Step("Входим на сайт без логина")
+    @Step("Нажимаем кнопку Войти")
     public void loginEmpty () {
         loginButton.shouldBe(visible).click();
+    }
+
+    @Step("Нажимаем кнопку восстановить профиль")
+    public void clickRecoveryButton () {
+        goToRecoveryButton.shouldBe(visible).click();
     }
 
     @Step("Входим на сайт с логином и без пароля: {username}")
     public void passwordEmpty(String username) {
         usernameField.shouldBe(visible).click();
         usernameField.shouldBe(visible).setValue(username);;
+        loginButton.shouldBe(visible).click();
+    }
+
+    @Step("Входим на сайт с паролем и без логина: {password}")
+    public void setPassword(String password) {
+        passwordField.shouldBe(visible).click();
+        passwordField.shouldBe(visible).setValue(password);;
         loginButton.shouldBe(visible).click();
     }
 
