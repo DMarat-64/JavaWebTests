@@ -21,7 +21,7 @@ public class SearchForGroupsTest extends BaseTest {
 
     @Test
     public void searchTest() {
-        basePage.search("Тестировщик");
+        basePage.search("тестировщик");
 
         assertThat($("[data-l='t,userAltGroup']").shouldBe(visible));
     }
