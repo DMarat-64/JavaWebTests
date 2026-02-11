@@ -1,6 +1,7 @@
 package tests;
 
 import core.base.BaseTest;
+import core.pages.AuthorizationQrPage;
 import core.pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AuthorizationQrCodeTest extends BaseTest {
     private static LoginPage loginPage;
+    private static AuthorizationQrPage authorizationQrPage;
 
 
     @BeforeEach
@@ -24,8 +26,8 @@ public class AuthorizationQrCodeTest extends BaseTest {
 
         loginPage.clickButtonQR();
 
-        var imgQrCode = $("[class='qr_code_image_wrapper']");
-        assertTrue(imgQrCode.isDisplayed());
+        authorizationQrPage = new AuthorizationQrPage();
+        assertTrue(authorizationQrPage.isQrVisible(), "Qr не отображается");
 
     }
 }
