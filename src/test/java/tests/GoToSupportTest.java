@@ -33,6 +33,6 @@ public class GoToSupportTest extends BaseTest {
         assertTrue(helpDeskWindowsPage.isHelpDeskVisible(), "Диалоговое окно не отображается");
 
         helpDeskWindowsPage.closedWindows();
-      //  helpDeskWindowsPage.buttonYes();
+        helpDeskWindowsPage.buttonYes();
     }
 }
