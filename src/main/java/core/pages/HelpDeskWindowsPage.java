@@ -10,9 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class HelpDeskWindowsPage extends BasePage {
     private SelenideElement helpDesk = $("[class='support-chat__kmsu6']");
     private SelenideElement closedWindows = $x("//button[@class='button__tndfc button-icon__tndfc']//span[@name='ico_close_16']");
- //   private SelenideElement buttonYes = $x("//button[text()='Да']");
-  //  private SelenideElement buttonYes = $$("[data-uikit-old='Button']").get(0);
-   // private SelenideElement closedHelpDesk = $("[class='confirm-text-main__n9ga2']");
+    private SelenideElement buttonYes = $x("//span[text()='Да']");
 
     {
         verifyPageElements();
@@ -22,8 +20,6 @@ public class HelpDeskWindowsPage extends BasePage {
     private void verifyPageElements() {
         helpDesk.shouldBe(visible);
         closedWindows.shouldBe(visible);
-     //   buttonYes.shouldBe(visible);
-       // closedHelpDesk.shouldBe(visible);
     }
 
     @Step("Закрываем чат")
@@ -31,10 +27,10 @@ public class HelpDeskWindowsPage extends BasePage {
         closedWindows.shouldBe(visible).click();
     }
 
-//    @Step("Нажимаем кнопку Да")
-//    public void buttonYes() {
-//        buttonYes.shouldBe(visible).click();
-//    }
+    @Step("Нажимаем кнопку Да")
+    public void buttonYes() {
+        buttonYes.shouldBe(visible).click();
+    }
 
     @Step("Проверяем видимость диалогового окна")
     public boolean isHelpDeskVisible() {
