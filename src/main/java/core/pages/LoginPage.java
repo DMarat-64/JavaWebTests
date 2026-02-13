@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     private SelenideElement passwordField = $("#field_password");
     private SelenideElement loginButton = $("[label='Войти']");
     private SelenideElement loginButtonQR = $("[label='Войти по QR-коду']");
-    private SelenideElement buttonCantLogin = $("[aria-label='Не получается войти?']");
+    private SelenideElement buttonCantLogin = $("[class='vkuiInternalTappable vkuiLink__host vkuiLink__withUnderline vkuiTappable__host vkuiTappable__sizeXNone vkuiTappable__hasPointerNone vkuiClickable__host vkuiClickable__realClickable vkuistyles__-focus-visible vkuiRootComponent__host']");
     private SelenideElement registrationButton = $$("[class='vkuiButton__in']").get(2);
 
     private SelenideElement vkButton = $("[data-l='t,vkc']");
@@ -106,5 +106,15 @@ public class LoginPage extends BasePage {
     @Step("Входим на сайт через Yandex")
     public void loginWithYandex() {
         yandexButton.shouldBe(visible).click();
+    }
+
+    @Step("Нажимаем кнопку Войти по QR-коду")
+    public void clickButtonQR() {
+        loginButtonQR.shouldBe(visible).click();
+    }
+
+    @Step("Нажимаем кнопку Не получается войти")
+    public void clickButtonCantLogin() {
+        buttonCantLogin.shouldBe(visible).click();
     }
 }
