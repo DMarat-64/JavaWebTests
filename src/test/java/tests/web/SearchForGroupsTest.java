@@ -1,4 +1,4 @@
-package tests;
+package tests.web;
 
 import core.base.BasePage;
 import core.base.BaseTest;
