@@ -1,4 +1,4 @@
-package core.pages;
+package core.pages.web;
 
 import com.codeborne.selenide.SelenideElement;
 import core.base.BasePage;
@@ -8,7 +8,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class RecoveryByPhone extends BasePage {
+public class RecoveryByPhonePage extends BasePage {
+
     private SelenideElement foneInputField = $("#field_phone");
     private SelenideElement countryDropdown  = $x("//div[@class='isl_w country-select_label']");
     private SelenideElement getCodeButton = $("[data-l='t,submit']");
